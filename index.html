@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Product Management</h1>
+
+  <!-- ADD PRODUCT FORM -->
+  <form id="productForm">
+    <input type="text" id="name" placeholder="Product Name" required>
+    <input type="number" id="price" placeholder="Price" required>
+    <input type="text" id="category" placeholder="Category">
+    <input type="number" id="stock" placeholder="Stock">
+
+    <button type="submit">Add Product</button>
+  </form>
+
+  <!-- PRODUCT TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Stock</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productList"></tbody>
+  </table>
+
+<!-- Supabase MUST come first -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
