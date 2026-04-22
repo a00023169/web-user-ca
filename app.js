@@ -1,17 +1,20 @@
+console.log("JS LOADED");
+
 // ================= CONNECT =================
 const supabaseUrl = "https://tfmykocynhszgpdcnpia.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbXlrb2N5bmhzemdwZGNucGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NDM1NzksImV4cCI6MjA5MjQxOTU3OX0.nwoFGHWmSe4EGrb5OUxwTEa6d-RuMYipAI1gkK0PBLY";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbXlrb2N5bmhzemdwZGNucGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NDM1NzksImV4cCI6MjA5MjQxOTU3OX0.nwoFGHWmSe4EGrb5OUxwTEa6d-RuMYipAI1gkK0PBLY";
 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // ================= LOAD DATA (READ) =================
 async function loadProducts() {
-  const { data, error } = await supabase.from('products').select('*');
+  const { data, error } = await supabase.from("products").select("*");
 
   const table = document.getElementById("productList");
   table.innerHTML = "";
 
-  data.forEach(product => {
+  data.forEach((product) => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
@@ -36,9 +39,9 @@ async function addProduct() {
   const category = document.getElementById("category").value;
   const stock = document.getElementById("stock").value;
 
-  const { error } = await supabase.from('products').insert([
-    { name, price, category, stock }
-  ]);
+  const { error } = await supabase
+    .from("products")
+    .insert([{ name, price, category, stock }]);
 
   if (error) {
     alert("Insert failed: " + error.message);
@@ -49,31 +52,40 @@ async function addProduct() {
 
 // ================= DELETE =================
 async function deleteProduct(id) {
-  await supabase.from('products').delete().eq('product_id', id);
+  await supabase.from("products").delete().eq("product_id", id);
   loadProducts();
 }
 
 // ================= UPDATE =================
-async function editProduct(id, currentName, currentCategory, currentPrice, currentStock) {
-
+async function editProduct(
+  id,
+  currentName,
+  currentCategory,
+  currentPrice,
+  currentStock,
+) {
   const newName = prompt("Enter new name:", currentName);
   const newCategory = prompt("Enter new category:", currentCategory);
   const newPrice = prompt("Enter new price:", currentPrice);
   const newStock = prompt("Enter new stock:", currentStock);
 
   if (newName && newPrice) {
-    await supabase.from('products')
+    await supabase
+      .from("products")
       .update({
         name: newName,
         category: newCategory,
         price: newPrice,
-        stock: newStock
+        stock: newStock,
       })
-      .eq('product_id', id);
+      .eq("product_id", id);
 
     loadProducts();
   }
 }
 
 // LOAD ON START
-window.onload = loadProducts;
+window.onload = loadProducts
+window.addProduct = addProduct;
+window.deleteProduct = deleteProduct;
+window.editProduct = editProduct;
