@@ -1,32 +1,42 @@
 body {
-  font-family: Arial;
-  padding: 20px;
-  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  padding: 30px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-form {
+/* FORM */
+.form-container {
   display: flex;
-  gap: 10px;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 input {
   padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-  padding: 8px;
-  background: blue;
+  padding: 8px 12px;
+  background-color: #2f80ed;
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #1c5ec8;
+}
+
+/* TABLE */
 table {
   width: 80%;
   margin: auto;
@@ -35,7 +45,12 @@ table {
 }
 
 th, td {
-  border: 1px solid #ccc;
   padding: 10px;
+  border: 1px solid #ccc;
   text-align: center;
+}
+
+th {
+  background-color: #2f80ed;
+  color: white;
 }
