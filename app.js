@@ -11,6 +11,14 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 async function loadProducts() {
   const { data, error } = await supabase.from("products").select("*");
 
+console.log("LOAD DATA:", data);
+console.log("LOAD ERROR:", error);
+
+if (error) {
+  console.error("Error loading products:", error.message);
+  return;
+}
+
   const table = document.getElementById("productList");
   table.innerHTML = "";
 
