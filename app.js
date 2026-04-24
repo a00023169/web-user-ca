@@ -1,9 +1,9 @@
 console.log("JS LOADED");
 
 // ================= CONNECT =================
-const supabaseUrl = "https://tfmykocynhszgpdcnpia.supabase.co";
+const supabaseUrl = "https://blumzufykogeolyafedt.supabase.co";
 const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbXlrb2N5bmhzemdwZGNucGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NDM1NzksImV4cCI6MjA5MjQxOTU3OX0.nwoFGHWmSe4EGrb5OUxwTEa6d-RuMYipAI1gkK0PBLY";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsdW16dWZ5a29nZW9seWFmZWR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMzY5NTQsImV4cCI6MjA5MjYxMjk1NH0.a79pBQorO5q14d2PtRoC59xiFG_KTgeaao06_EpTJEY";
 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
